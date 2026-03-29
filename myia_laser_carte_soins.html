@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Myia Laser — Carte Soins</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Josefin Sans', sans-serif;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .nav {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: 1px solid #C9A96E;
+    color: #C9A96E;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .nav-btn.active, .nav-btn:hover {
+    background: #C9A96E;
+    color: #1A1A1A;
+  }
+
+  /* CARD */
+  .card {
+    width: 540px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    display: none;
+    flex-shrink: 0;
+  }
+
+  .card.active { display: block; }
+
+  /* ═══════════════════════════════
+     CARTE 1 — RITUEL SIGNATURE
+  ═══════════════════════════════ */
+  .card-1 {
+    background: #0D0D0D;
+  }
+
+  .card-1 .bg-kanji {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 400px;
+    color: rgba(201,169,110,0.04);
+    top: -80px;
+    right: -60px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .card-1 .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(to right, #C4687A, #C9A96E, #C4687A);
+  }
+
+  .card-1 .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(to right, #C9A96E, #C4687A, #C9A96E);
+  }
+
+  .card-1 .content {
+    position: absolute;
+    inset: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-1 .salon-name {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: #C9A96E;
+    margin-bottom: 6px;
+  }
+
+  .card-1 .divider {
+    width: 40px;
+    height: 1px;
+    background: #C4687A;
+    margin-bottom: 20px;
+  }
+
+  .card-1 .main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  .card-1 .main-title em {
+    font-style: italic;
+    color: #C9A96E;
+  }
+
+  .card-1 .subtitle {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #C4687A;
+    margin-bottom: 28px;
+  }
+
+  .card-1 .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .card-1 .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .card-1 .step-num {
+    width: 26px;
+    height: 26px;
+    border: 1px solid #C9A96E;
+    color: #C9A96E;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .card-1 .step-info h4 {
+    font-size: 12px;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+  }
+
+  .card-1 .step-info p {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  .card-1 .benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .card-1 .benefit {
+    background: rgba(201,169,110,0.1);
+    border: 1px solid rgba(201,169,110,0.2);
+    color: #E8D5A3;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+  }
+
+  .card-1 .bottom-info {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 16px;
+  }
+
+  .card-1 .price-block .label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 4px;
+  }
+
+  .card-1 .price-block .price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: white;
+    line-height: 1;
+  }
+
+  .card-1 .price-block .price span {
+    font-size: 16px;
+    color: #C9A96E;
+  }
+
+  .card-1 .rdv-block {
+    text-align: right;
+  }
+
+  .card-1 .rdv-block .duree {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .card-1 .rdv-btn {
+    background: #C4687A;
+    color: white;
+    font-size: 8px;
+    letter-spacing: 2px;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* ═══════════════════════════════
+     CARTE 2 — MENU COMPLET
+  ═══════════════════════════════ */
+  .card-2 {
+    background: #0D0D0D;
+  }
+
+  .card-2 .left-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 50px;
+    background: #0D0D0D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .card-2 .left-bar span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #C9A96E;
+  }
+
+  .card-2 .left-bar .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #C4687A;
+  }
+
+  .card-2 .content {
+    position: absolute;
+    left: 50px; right: 0; top: 0; bottom: 0;
+    padding: 35px 35px 35px 30px;
+  }
+
+  .card-2 .header {
+    margin-bottom: 22px;
+  }
+
+  .card-2 .salon {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: #C4687A;
+    margin-bottom: 4px;
+  }
+
+  .card-2 .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: #FDFAF6;
+    line-height: 1.1;
+  }
+
+  .card-2 .title em { font-style: italic; color: #C9A96E; }
+
+  .card-2 .tagline {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+  }
+
+  .card-2 .sep {
+    height: 1px;
+    background: linear-gradient(to right, #C9A96E, transparent);
+    margin-bottom: 18px;
+  }
+
+  .card-2 .soin {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    gap: 10px;
+  }
+
+  .card-2 .soin:last-of-type { border-bottom: none; }
+
+  .card-2 .soin-left { flex: 1; }
+
+  .card-2 .soin-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #FDFAF6;
+    margin-bottom: 2px;
+  }
+
+  .card-2 .soin-desc {
+    font-size: 9px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  .card-2 .soin-duree {
+    font-size: 8px;
+    color: #C4687A;
+    letter-spacing: 1px;
+    margin-top: 3px;
+    display: block;
+  }
+
+  .card-2 .soin-right { text-align: right; flex-shrink: 0; }
+
+  .card-2 .soin-prix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #C9A96E;
+  }
+
+  .card-2 .soin.featured {
+    background: linear-gradient(135deg, #1A0A12, #0D0D0D);
+    margin: 8px -35px 8px -30px;
+    padding: 16px 35px 16px 30px;
+    border-bottom: none;
+    border-left: 4px solid #C4687A;
+    position: relative;
+  }
+
+  .card-2 .soin.featured::before {
+    content: 'NOTRE BESTSELLER';
+    position: absolute;
+    top: -9px;
+    right: 35px;
+    background: #C4687A;
+    color: white;
+    font-size: 7px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+  }
+
+  .card-2 .soin.featured .soin-name {
+    color: #C9A96E;
+    font-size: 20px;
+  }
+  .card-2 .soin.featured .soin-desc { color: rgba(255,255,255,0.6); }
+  .card-2 .soin.featured .soin-prix {
+    color: #C9A96E;
+    font-size: 28px;
+  }
+
+  .card-2 .footer {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-2 .footer .rdv {
+    background: #C9A96E;
+    color: #0D0D0D;
+    font-size: 8px;
+    letter-spacing: 2px;
+    padding: 7px 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .card-2 .footer .note {
+    font-size: 8px;
+    color: rgba(255,255,255,0.3);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════
+     CARTE 3 — CURE
+  ═══════════════════════════════ */
+  .card-3 {
+    background: linear-gradient(135deg, #0D0D0D 0%, #1A0A12 60%, #0D0D0D 100%);
+  }
+
+  .card-3 .sakura-bg {
+    position: absolute;
+    font-size: 300px;
+    color: rgba(196,104,122,0.04);
+    bottom: -60px;
+    left: -40px;
+    pointer-events: none;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .card-3 .top-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #C4687A, transparent);
+  }
+
+  .card-3 .content {
+    position: absolute;
+    inset: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-3 .badge {
+    border: 1px solid rgba(201,169,110,0.4);
+    color: #C9A96E;
+    font-size: 8px;
+    letter-spacing: 4px;
+    padding: 5px 18px;
+    margin-bottom: 20px;
+  }
+
+  .card-3 .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .card-3 .title em { font-style: italic; color: #C9A96E; }
+
+  .card-3 .subtitle {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #C4687A;
+    margin-bottom: 30px;
+  }
+
+  .card-3 .cures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .card-3 .cure {
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 18px 16px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-3 .cure.premium {
+    border-color: rgba(196,104,122,0.4);
+    background: rgba(196,104,122,0.06);
+  }
+
+  .card-3 .cure-num {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #C9A96E;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .card-3 .cure-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .card-3 .cure-detail {
+    font-size: 9px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .card-3 .cure-prix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: #C9A96E;
+  }
+
+  .card-3 .note {
+    font-size: 9px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .card-3 .rdv-btn {
+    background: #C4687A;
+    color: white;
+    font-size: 9px;
+    letter-spacing: 3px;
+    padding: 12px 36px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  .card-3 .rdv-btn:hover { background: #C9A96E; color: #0D0D0D; }
+
+  /* HINT */
+  .hint {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showCard(1)">RITUEL SIGNATURE</button>
+  <button class="nav-btn" onclick="showCard(2)">MENU SOINS</button>
+  <button class="nav-btn" onclick="showCard(3)">CURES</button>
+</div>
+
+<!-- CARTE 1 — RITUEL SIGNATURE -->
+<div class="card card-1 active" id="card-1">
+  <div class="bg-kanji">美</div>
+  <div class="top-bar"></div>
+  <div class="bottom-bar"></div>
+  <div class="content">
+    <div class="salon-name">MYIA LASER — BAGNOLET</div>
+    <div class="divider"></div>
+    <h1 class="main-title">Rituel<br><em>Signature</em></h1>
+    <p class="subtitle">PROTOCOLE JAPONAIS EXCLUSIF</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-info">
+          <h4>HYDRAFACIAL</h4>
+          <p>Nettoyage profond · Exfoliation · Hydratation<br>Pores purifiés · Peau préparée</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-info">
+          <h4>MASQUE FERMENTÉ JAPONAIS</h4>
+          <p>Actif ancestral anti-taches — estompe l'hyperpigmentation<br>Eau tiède · Pose 8 à 10 min</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-info">
+          <h4>ESSENCE HADA</h4>
+          <p>Lotion végétale japonaise aux céréales précieuses<br>Tapotage doux · Absorption immédiate</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits">
+      <span class="benefit">ANTI-TACHES</span>
+      <span class="benefit">ÉCLAT IMMÉDIAT</span>
+      <span class="benefit">HYDRATATION</span>
+      <span class="benefit">TOUTES TEINTES DE PEAU</span>
+    </div>
+
+    <div class="bottom-info">
+      <div class="price-block">
+        <div class="label">À PARTIR DE</div>
+        <div class="price">120<span>€</span></div>
+      </div>
+      <div class="rdv-block">
+        <span class="duree">60 MINUTES</span>
+        <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARTE 2 — MENU COMPLET -->
+<div class="card card-2" id="card-2">
+  <div class="left-bar">
+    <span>MYIA LASER</span>
+    <div class="dot"></div>
+    <span>BAGNOLET</span>
+  </div>
+  <div class="content">
+    <div class="header">
+      <div class="salon">RITUELS JAPONAIS — SOINS VISAGE</div>
+      <h2 class="title">Nos soins<br><em>& tarifs.</em></h2>
+      <div class="tagline">SPÉCIALISÉE PEAUX NOIRES & MÉTISSÉES DEPUIS +10 ANS</div>
+    </div>
+    <div class="sep"></div>
+
+    <div class="soin">
+      <div class="soin-left">
+        <div class="soin-name">Soin Essentiel</div>
+        <div class="soin-desc">Hydrafacial + Masque fermenté japonais ancestral<br>Anti-taches · Éclat · Toutes teintes de peau</div>
+        <span class="soin-duree">60 MIN</span>
+      </div>
+      <div class="soin-right">
+        <div class="soin-prix">90€</div>
+      </div>
+    </div>
+
+    <div class="soin featured">
+      <div class="soin-left">
+        <div class="soin-name">Rituel Signature ★</div>
+        <div class="soin-desc">Hydrafacial + Masque fermenté + Essence Hada<br>Protocole exclusif en 2 temps</div>
+        <span class="soin-duree" style="color:#C4687A;">75 MIN</span>
+      </div>
+      <div class="soin-right">
+        <div class="soin-prix">120€</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a class="rdv" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER SUR FRESHA</a>
+      <div class="note">Sur rendez-vous<br>19 rue de la Fraternité, Bagnolet</div>
+    </div>
+  </div>
+</div>
+
+<!-- CARTE 3 — CURES -->
+<div class="card card-3" id="card-3">
+  <div class="sakura-bg">桜</div>
+  <div class="top-accent"></div>
+  <div class="content">
+    <div class="badge">MYIA LASER — BAGNOLET</div>
+    <h2 class="title">Cures &<br><em>Forfaits.</em></h2>
+    <p class="subtitle">RÉSULTATS VISIBLES DÈS LA 3E SÉANCE</p>
+
+    <div class="cures">
+      <div class="cure">
+        <span class="cure-num">CURE 01</span>
+        <div class="cure-name">Cure Éclat</div>
+        <div class="cure-detail">6 séances · Hydrafacial + Masque fermenté + Essence Hada · Bilan offert</div>
+        <div class="cure-prix">480€</div>
+      </div>
+      <div class="cure premium">
+        <span class="cure-num">CURE 02</span>
+        <div class="cure-name">Cure Intensive</div>
+        <div class="cure-detail">10 séances · Protocole personnalisé · Transformation complète</div>
+        <div class="cure-prix">750€</div>
+      </div>
+    </div>
+
+    <p class="note">✦ Bilan de peau offert avant toute cure ✦</p>
+    <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER UNE SÉANCE</a>
+  </div>
+</div>
+
+<p class="hint">↑ Cliquez sur les onglets pour naviguer entre les visuels</p>
+
+<script>
+  function showCard(num) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('card-' + num).classList.add('active');
+    document.querySelectorAll('.nav-btn')[num-1].classList.add('active');
+  }
+</script>
+</body>
+</html>
