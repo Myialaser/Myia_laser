@@ -222,9 +222,27 @@
     text-align: center;
   }
 
-  @media (max-width: 460px) {
-    .card { padding: 40px 24px 32px; border-radius: 140px 140px 16px 16px; }
+  @media (max-width: 768px) {
+    body { padding: 16px 12px; gap: 14px; }
+    .nav { gap: 6px; }
+    .nav-btn { font-size: 8px; padding: 7px 14px; }
+    .card { max-width: 100%; padding: 40px 24px 32px; border-radius: 140px 140px 16px 16px; }
+    .main-title { font-size: clamp(44px, 14vw, 64px); }
+    .section-title { font-size: 20px; }
+    .price-row .zone { font-size: 11px; }
+    .price-row .prix { font-size: 14px; }
+    .forfait-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .forfait { padding: 12px 10px; }
+    .forfait .f-prix { font-size: 18px; }
+    .forfait .f-zones { font-size: 9px; }
+    .rdv-btn { padding: 10px 20px; font-size: 8px; }
+  }
+
+  @media (max-width: 380px) {
+    .card { padding: 30px 16px 24px; border-radius: 100px 100px 12px 12px; }
+    .main-title { font-size: 40px; }
     .forfait-grid { grid-template-columns: 1fr; }
+    .logo { font-size: 22px; }
   }
 </style>
 </head>
