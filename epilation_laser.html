@@ -3,262 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light only">
-<style>:root { color-scheme: light only; }</style>
-<title>Myia Laser — Tarifs Épilation</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
+<title>Myia Laser — Épilation Laser</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: 'Josefin Sans', sans-serif;
-    background: #F5EFE6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 30px 20px;
+    background: #0A0A0A;
+    color: #FDFAF6;
     min-height: 100vh;
   }
 
-  .nav {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
+  /* HEADER */
+  .header {
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
   }
 
-  .nav-btn {
-    background: transparent;
-    border: 1px solid #8B7355;
-    color: #8B7355;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    padding: 7px 18px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .nav-btn.active, .nav-btn:hover {
-    background: #1A1A1A;
-    color: #C9A96E;
-    border-color: #1A1A1A;
-  }
-
-  /* CARD BASE */
-  .card {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(255, 252, 248, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 200px 200px 20px 20px;
-    padding: 50px 40px 40px;
-    display: none;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-  }
-
-  .card.active { display: block; }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(160deg, rgba(255,255,255,0.6) 0%, rgba(245,238,228,0.3) 100%);
-    border-radius: inherit;
-    pointer-events: none;
-  }
-
-  /* LOGO & TITRE */
   .logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     font-weight: 300;
-    color: #1A1A1A;
-    text-align: center;
-    margin-bottom: 6px;
     letter-spacing: 6px;
-    text-transform: uppercase;
+    color: #FDFAF6;
   }
 
-  .logo em {
-    font-style: italic;
-    color: #8B7355;
-    letter-spacing: 4px;
-    font-weight: 300;
+  .logo em { font-style: italic; color: #C9A96E; letter-spacing: 4px; }
+
+  .header-sub {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 6px;
   }
 
-  .main-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 14vw, 72px);
-    font-weight: 300;
-    color: #1A1A1A;
-    text-align: center;
-    line-height: 1;
-    margin-bottom: 30px;
+  /* ONGLETS */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
+
+  .tab {
+    flex: 1;
+    padding: 14px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab.active {
+    color: #C9A96E;
+    border-bottom-color: #C9A96E;
+    background: rgba(201,169,110,0.05);
+  }
+
+  /* CONTENU */
+  .content {
+    padding: 24px;
+    display: none;
+  }
+
+  .content.active { display: block; }
 
   /* SECTION */
-  .section { margin-bottom: 24px; }
+  .section { margin-bottom: 28px; }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: #1A1A1A;
+    font-size: 22px;
+    font-weight: 300;
+    color: #FDFAF6;
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
   }
 
   .section-title::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #1A1A1A;
-    opacity: 0.3;
+    background: rgba(201,169,110,0.15);
   }
 
   .price-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
   }
 
-  .price-row .zone {
+  .price-row:last-child { border-bottom: none; }
+
+  .zone {
     font-size: 12px;
-    color: #444;
+    color: rgba(255,255,255,0.65);
     letter-spacing: 0.5px;
   }
 
-  .price-row .prix {
+  .prix {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #1A1A1A;
-  }
-
-  .note {
-    text-align: center;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #888;
-    margin-top: 20px;
-    font-style: italic;
+    font-size: 18px;
+    font-weight: 300;
+    color: #C9A96E;
   }
 
   /* FORFAITS */
-  .forfait-grid {
+  .forfaits-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 3px;
   }
 
   .forfait {
-    background: rgba(255,255,255,0.5);
-    border-radius: 8px;
-    padding: 14px 12px;
-    text-align: center;
+    background: #111;
+    padding: 16px 14px;
+    border-left: 2px solid transparent;
+    transition: border-color 0.3s;
   }
 
-  .forfait .f-prix {
+  .forfait:hover { border-left-color: #C9A96E; }
+  .forfait.featured { background: #1A0810; border-left-color: #C4687A; }
+
+  .f-prix {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 300;
-    color: #1A1A1A;
+    color: #C9A96E;
     display: block;
     margin-bottom: 6px;
   }
 
-  .forfait .f-zones {
-    font-size: 10px;
-    color: #666;
-    line-height: 1.6;
-  }
+  .forfait.featured .f-prix { color: #E8A0B0; }
 
-  .forfait.featured {
-    background: rgba(26,26,26,0.08);
-    border: 1px solid rgba(26,26,26,0.15);
+  .f-zones {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
   }
 
   /* RDV */
-  .rdv-section {
-    text-align: center;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-  }
-
-  .rdv-label {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #888;
-    margin-bottom: 10px;
-    display: block;
+  .rdv-wrap {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
   .rdv-btn {
-    display: inline-block;
-    background: #1A1A1A;
-    color: #C9A96E;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 3px;
-    padding: 12px 28px;
+    display: block;
+    background: #C4687A;
+    color: white;
     text-decoration: none;
-    border-radius: 2px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    padding: 16px;
     transition: all 0.3s;
   }
 
-  .rdv-btn:hover { background: #C9A96E; color: #1A1A1A; }
+  .rdv-btn:hover { background: #C9A96E; color: #0A0A0A; }
 
-  .hint {
-    font-size: 10px;
-    color: #666;
-    letter-spacing: 1px;
+  .note {
     text-align: center;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.2);
+    padding: 16px 24px;
+    font-style: italic;
   }
 
-  @media (max-width: 768px) {
-    body { padding: 16px 12px; gap: 14px; }
-    .nav { gap: 6px; }
-    .nav-btn { font-size: 8px; padding: 7px 14px; }
-    .card { max-width: 100%; padding: 40px 24px 32px; border-radius: 140px 140px 16px 16px; }
-    .main-title { font-size: clamp(44px, 14vw, 64px); }
-    .section-title { font-size: 20px; }
-    .price-row .zone { font-size: 11px; }
-    .price-row .prix { font-size: 14px; }
-    .forfait-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-    .forfait { padding: 12px 10px; }
-    .forfait .f-prix { font-size: 18px; }
-    .forfait .f-zones { font-size: 9px; }
-    .rdv-btn { padding: 10px 20px; font-size: 8px; }
-  }
-
-  @media (max-width: 380px) {
-    .card { padding: 30px 16px 24px; border-radius: 100px 100px 12px 12px; }
-    .main-title { font-size: 40px; }
-    .forfait-grid { grid-template-columns: 1fr; }
-    .logo { font-size: 22px; }
+  @media (max-width: 400px) {
+    .content { padding: 18px 16px; }
+    .forfaits-grid { grid-template-columns: 1fr; gap: 2px; }
+    .section-title { font-size: 18px; }
+    .f-prix { font-size: 22px; }
   }
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <button class="nav-btn active" onclick="show('tarifs')">TARIFS À LA SÉANCE</button>
-  <button class="nav-btn" onclick="show('forfaits')">FORFAITS</button>
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">MYIA <em>Laser</em></div>
+  <div class="header-sub">ÉPILATION LASER — TOUTES TEINTES DE PEAU</div>
 </div>
 
-<!-- ══════ TARIFS ══════ -->
-<div class="card active" id="tarifs">
-  <div class="logo">Myia<em style="font-style:italic; color:#8B7355;">Laser</em></div>
-  <h1 class="main-title">Tarifs</h1>
+<!-- ONGLETS -->
+<div class="tabs">
+  <button class="tab active" onclick="showTab('tarifs', this)">TARIFS À LA SÉANCE</button>
+  <button class="tab" onclick="showTab('forfaits', this)">FORFAITS</button>
+</div>
+
+<!-- TARIFS -->
+<div class="content active" id="tarifs">
 
   <div class="section">
     <div class="section-title">Visage</div>
@@ -303,83 +250,42 @@
     <div class="price-row"><span class="zone">Dos complet</span><span class="prix">180€</span></div>
   </div>
 
-  <div class="rdv-section">
-    <span class="rdv-label">RÉSERVATION EN LIGNE</span>
-    <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER →</a>
-  </div>
-
-  <p class="note">* Prix à la séance — Bagnolet 93170</p>
 </div>
 
-<!-- ══════ FORFAITS ══════ -->
-<div class="card" id="forfaits">
-  <div class="logo">Myia<em style="font-style:italic; color:#8B7355;">Laser</em></div>
-  <h1 class="main-title">Formules</h1>
-
-  <div class="forfait-grid">
-    <div class="forfait">
-      <span class="f-prix">60€</span>
-      <div class="f-zones">Maillot simple<br>& Aisselles</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">80€</span>
-      <div class="f-zones">Visage<br>Complet</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">90€</span>
-      <div class="f-zones">Maillot échancré,<br>SIF & Aisselles</div>
-    </div>
-    <div class="forfait featured">
-      <span class="f-prix">110€</span>
-      <div class="f-zones">Maillot intégral<br>& Bras entier</div>
-    </div>
-    <div class="forfait featured">
-      <span class="f-prix">120€</span>
-      <div class="f-zones">Maillot intégral<br>& Aisselles</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">160€</span>
-      <div class="f-zones">Demi-jambes,<br>Maillot simple<br>& Aisselles</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">180€</span>
-      <div class="f-zones">Demi-jambes,<br>Maillot échancré,<br>SIF & Aisselles</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">210€</span>
-      <div class="f-zones">Demi-jambes,<br>Maillot intégral<br>& Aisselles</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">250€</span>
-      <div class="f-zones">Jambes entières,<br>Maillot simple<br>& Aisselles</div>
-    </div>
-    <div class="forfait">
-      <span class="f-prix">280€</span>
-      <div class="f-zones">Jambes entières,<br>Maillot échancré,<br>SIF & Aisselles</div>
-    </div>
-    <div class="forfait featured">
-      <span class="f-prix">300€</span>
-      <div class="f-zones">Jambes entières,<br>Maillot intégral<br>& Aisselles</div>
-    </div>
+<!-- FORFAITS -->
+<div class="content" id="forfaits">
+  <div class="forfaits-grid">
+    <div class="forfait"><span class="f-prix">60€</span><div class="f-zones">Maillot simple & Aisselles</div></div>
+    <div class="forfait"><span class="f-prix">80€</span><div class="f-zones">Visage Complet</div></div>
+    <div class="forfait"><span class="f-prix">90€</span><div class="f-zones">Maillot échancré, SIF & Aisselles</div></div>
+    <div class="forfait featured"><span class="f-prix">110€</span><div class="f-zones">Maillot intégral & Bras entier</div></div>
+    <div class="forfait featured"><span class="f-prix">120€</span><div class="f-zones">Maillot intégral & Aisselles</div></div>
+    <div class="forfait"><span class="f-prix">160€</span><div class="f-zones">Demi-jambes, Maillot simple & Aisselles</div></div>
+    <div class="forfait"><span class="f-prix">180€</span><div class="f-zones">Demi-jambes, Maillot échancré, SIF & Aisselles</div></div>
+    <div class="forfait"><span class="f-prix">210€</span><div class="f-zones">Demi-jambes, Maillot intégral & Aisselles</div></div>
+    <div class="forfait"><span class="f-prix">250€</span><div class="f-zones">Jambes entières, Maillot simple & Aisselles</div></div>
+    <div class="forfait"><span class="f-prix">280€</span><div class="f-zones">Jambes entières, Maillot échancré, SIF & Aisselles</div></div>
+    <div class="forfait featured"><span class="f-prix">300€</span><div class="f-zones">Jambes entières, Maillot intégral & Aisselles</div></div>
   </div>
-
-  <div class="rdv-section">
-    <span class="rdv-label">RÉSERVATION EN LIGNE</span>
-    <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER →</a>
-  </div>
-
-  <p class="note">* Prix à la séance — Bagnolet 93170</p>
 </div>
 
-<p class="hint">↑ Cliquez sur les onglets pour naviguer</p>
+<!-- RDV -->
+<div class="rdv-wrap">
+  <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">
+    🌸 RÉSERVER UNE SÉANCE
+  </a>
+</div>
+
+<p class="note">* Prix à la séance — Bagnolet 93170</p>
 
 <script>
-  function show(id) {
-    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  function showTab(id, btn) {
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
+    btn.classList.add('active');
   }
 </script>
+
 </body>
 </html>
