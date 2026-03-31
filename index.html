@@ -221,14 +221,40 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 420px) {
-    .hero { padding: 50px 20px 36px; }
-    .cards { grid-template-columns: 1fr; max-width: 100%; }
-    .card.wide { grid-column: span 1; }
+  /* iPhone & Android optimisés */
+  @media (max-width: 768px) {
+    .hero { padding: 50px 20px 40px; }
+    .cards { grid-template-columns: 1fr 1fr; max-width: 100%; gap: 2px; }
+    .card.wide { grid-column: span 2; }
     .rdv-wrap { max-width: 100%; }
-    .title { font-size: clamp(48px, 18vw, 80px); }
-    .card { min-height: 110px; padding: 22px 18px; }
-    .infos { gap: 18px 28px; }
+    .title { font-size: clamp(52px, 16vw, 90px); }
+    .card { min-height: 120px; padding: 22px 18px; }
+    .card-title { font-size: 17px; }
+    .card-sub { font-size: 8.5px; }
+    .infos { gap: 16px 28px; margin-top: 32px; }
+    .info-v { font-size: 10px; }
+    .rdv { font-size: 9px; letter-spacing: 4px; padding: 16px; }
+    .badge { font-size: 7px; letter-spacing: 3px; }
+    .subtitle { font-size: 8px; letter-spacing: 4px; margin-bottom: 36px; }
+  }
+
+  /* Petits téléphones — iPhone SE, Galaxy A */
+  @media (max-width: 390px) {
+    .hero { padding: 44px 16px 32px; }
+    .cards { grid-template-columns: 1fr; }
+    .card.wide { grid-column: span 1; }
+    .title { font-size: clamp(46px, 18vw, 72px); }
+    .card { min-height: 100px; padding: 20px 16px; }
+    .card-title { font-size: 16px; }
+    .infos { gap: 14px 20px; }
+    .subtitle { font-size: 7.5px; letter-spacing: 3px; }
+  }
+
+  /* Très petits écrans */
+  @media (max-width: 320px) {
+    .title { font-size: 42px; }
+    .card { padding: 16px 14px; }
+    .infos { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
@@ -285,15 +311,6 @@
     </div>
     <div class="info">
       <div class="info-l">EMAIL</div>
-      <div class="info-v"><a href="mailto:contact.myalaser@gmail.com">contact.myalaser@gmail.com</a></div>
+      <div class="info-v"><a href="/cdn-cgi/l/email-protection#99faf6f7edf8faedb7f4e0f8f5f8eafcebd9fef4f8f0f5b7faf6f4"><span class="__cf_email__" data-cfemail="7615191802171502581b0f171a1705130436111b171f1a5815191b">[email&#160;protected]</span></a></div>
     </div>
-    <div class="info">
-      <div class="info-l">INSTAGRAM</div>
-      <div class="info-v">@myia_laser</div>
-    </div>
-  </div>
-
-</section>
-
-</body>
-</html>
+    <div 
