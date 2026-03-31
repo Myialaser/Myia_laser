@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<style>:root { color-scheme: light only; }</style>
 <title>Myia Laser — Contenu Fresha</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
 <style>
@@ -108,10 +110,29 @@
   .hint { background: #FFF8E8; border: 1px solid var(--or); border-radius: 4px; padding: 14px 18px; font-size: 11px; color: var(--gris); line-height: 1.7; margin-bottom: 20px; }
   .hint strong { color: var(--noir); }
 
-  @media(max-width: 600px) {
-    .banner { height: auto; min-height: 220px; }
+  @media (max-width: 768px) {
+    body { padding: 16px 12px; gap: 12px; }
+    .tabs { gap: 4px; }
+    .tab { font-size: 8px; padding: 8px 10px; letter-spacing: 1px; }
+    .banner { height: auto; min-height: 200px; border-radius: 4px; }
     .banner .right-info { display: none; }
+    .banner-content { padding: 24px 20px; }
+    .banner h2 { font-size: 36px; }
+    .banner .tagline { font-size: 8px; letter-spacing: 2px; }
+    .banner .pills { gap: 5px; }
+    .banner .pill { font-size: 7px; padding: 3px 8px; }
+    .text-block { padding: 20px 16px; }
+    .copy-zone { font-size: 12px; padding: 14px 16px; padding-right: 60px; }
+    .service-card { padding: 18px 16px; }
     .info-grid { grid-template-columns: 1fr; }
+    .info-card { padding: 16px; }
+    .section-label { font-size: 8px; }
+  }
+
+  @media (max-width: 380px) {
+    .tab { font-size: 7px; padding: 6px 8px; }
+    .banner h2 { font-size: 28px; }
+    .copy-zone { font-size: 11px; }
   }
 </style>
 </head>
@@ -168,7 +189,7 @@ Bienvenue chez Myia Laser, salon spécialisé depuis plus de 10 ans dans les pea
 Nous proposons deux expertises complémentaires : l'épilation laser certifiée et les rituels de soins visage japonais exclusifs.
 
 📍 19 Rue de la Fraternité, 93170 Bagnolet
-📧 contact.myalaser@gmail.com
+📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1c10110b1e1c0b5112061e131e0c1a0d3f18121e1613511c1012">[email&#160;protected]</a>
     </div>
 
     <div class="label">Version longue (description complète)</div>
@@ -188,7 +209,7 @@ Notre protocole exclusif en 3 temps — Hydrafacial + Actif Fermenté Japonais +
 Nous sommes l'un des rares salons à proposer épilation laser ET soins anti-taches dans le même lieu. Vos taches post-épilation ? On les traite aussi.
 
 📍 19 Rue de la Fraternité, 93170 Bagnolet
-📧 contact.myalaser@gmail.com
+📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="53303c3d273230277d3e2a323f3220362113343e323a3f7d303c3e">[email&#160;protected]</a>
 🔗 Réservation : Fresha
     </div>
   </div>
@@ -348,7 +369,7 @@ Le parcours beauté complet en un seul salon.
       <p>
         19 Rue de la Fraternité<br>
         93170 Bagnolet<br><br>
-        📧 contact.myalaser@gmail.com<br>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a2925243e2b293e6427332b262b392f380a2d272b232664292527">[email&#160;protected]</a><br>
         🔗 Réservation sur Fresha<br><br>
         Sur rendez-vous uniquement
       </p>
@@ -372,7 +393,7 @@ Le parcours beauté complet en un seul salon.
 ✦ Épilation laser certifiée
 🖤 Spécialiste peaux noires & métissées +10 ans
 📍 Bagnolet — Paris Est
-📧 contact.myalaser@gmail.com
+📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32515d5c465351461c5f4b535e5341574072555f535b5e1c515d5f">[email&#160;protected]</a>
 🔗 RDV sur Fresha 👇
       </div>
     </div>
@@ -384,7 +405,7 @@ Merci pour votre réservation chez Myia Laser ! 🌸
 
 Nous vous confirmons votre rendez-vous au 19 Rue de la Fraternité, 93170 Bagnolet.
 
-Pour toute question : contact.myalaser@gmail.com
+Pour toute question : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa9a5a4beaba9bee4a7b3aba6abb9afb88aada7aba3a6e4a9a5a7">[email&#160;protected]</a>
 
 À très bientôt ✨
       </div>
@@ -392,26 +413,4 @@ Pour toute question : contact.myalaser@gmail.com
   </div>
 </div>
 
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-  }
-
-  function copyText(id, btn) {
-    const el = document.getElementById(id);
-    const text = el.innerText.replace('COPIER', '').trim();
-    navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = '✓ COPIÉ';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'COPIER';
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  }
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/ema
