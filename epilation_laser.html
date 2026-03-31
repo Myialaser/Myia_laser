@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Myia Laser — Tarifs Épilation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: #E8E0D5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 20px;
+    min-height: 100vh;
+  }
+
+  .nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: 1px solid #8B7355;
+    color: #8B7355;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 7px 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .nav-btn.active, .nav-btn:hover {
+    background: #1A1A1A;
+    color: #C9A96E;
+    border-color: #1A1A1A;
+  }
+
+  /* CARD BASE */
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(245, 238, 228, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 200px 200px 20px 20px;
+    padding: 50px 40px 40px;
+    display: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  }
+
+  .card.active { display: block; }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(255,255,255,0.6) 0%, rgba(245,238,228,0.3) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* LOGO & TITRE */
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: #1A1A1A;
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+
+  .logo em {
+    font-style: italic;
+    color: #8B7355;
+    letter-spacing: 4px;
+    font-weight: 300;
+  }
+
+  .main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 14vw, 72px);
+    font-weight: 300;
+    color: #1A1A1A;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 30px;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 24px; }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1A1A1A;
+    opacity: 0.3;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+  }
+
+  .price-row .zone {
+    font-size: 12px;
+    color: #444;
+    letter-spacing: 0.5px;
+  }
+
+  .price-row .prix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1A1A1A;
+  }
+
+  .note {
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #888;
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  /* FORFAITS */
+  .forfait-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .forfait {
+    background: rgba(255,255,255,0.5);
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .forfait .f-prix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #1A1A1A;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .forfait .f-zones {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .forfait.featured {
+    background: rgba(26,26,26,0.08);
+    border: 1px solid rgba(26,26,26,0.15);
+  }
+
+  /* RDV */
+  .rdv-section {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .rdv-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .rdv-btn {
+    display: inline-block;
+    background: #1A1A1A;
+    color: #C9A96E;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .rdv-btn:hover { background: #C9A96E; color: #1A1A1A; }
+
+  .hint {
+    font-size: 10px;
+    color: #666;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  @media (max-width: 460px) {
+    .card { padding: 40px 24px 32px; border-radius: 140px 140px 16px 16px; }
+    .forfait-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="show('tarifs')">TARIFS À LA SÉANCE</button>
+  <button class="nav-btn" onclick="show('forfaits')">FORFAITS</button>
+</div>
+
+<!-- ══════ TARIFS ══════ -->
+<div class="card active" id="tarifs">
+  <div class="logo">Myia<em style="font-style:italic; color:#8B7355;">Laser</em></div>
+  <h1 class="main-title">Tarifs</h1>
+
+  <div class="section">
+    <div class="section-title">Visage</div>
+    <div class="price-row"><span class="zone">Lèvre supérieure</span><span class="prix">30€</span></div>
+    <div class="price-row"><span class="zone">Menton ou joues</span><span class="prix">30€</span></div>
+    <div class="price-row"><span class="zone">Cou</span><span class="prix">30€</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Buste</div>
+    <div class="price-row"><span class="zone">Aréole mammaire</span><span class="prix">30€</span></div>
+    <div class="price-row"><span class="zone">Ligne ombilicale</span><span class="prix">30€</span></div>
+    <div class="price-row"><span class="zone">Buste complet</span><span class="prix">60€</span></div>
+    <div class="price-row"><span class="zone">Ventre</span><span class="prix">80€</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Bras</div>
+    <div class="price-row"><span class="zone">Aisselles</span><span class="prix">40€</span></div>
+    <div class="price-row"><span class="zone">Demi-bras</span><span class="prix">100€</span></div>
+    <div class="price-row"><span class="zone">Bras complet</span><span class="prix">120€</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jambes</div>
+    <div class="price-row"><span class="zone">Demi-jambes</span><span class="prix">120€</span></div>
+    <div class="price-row"><span class="zone">Cuisses</span><span class="prix">160€</span></div>
+    <div class="price-row"><span class="zone">Jambes entières</span><span class="prix">240€</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Maillot</div>
+    <div class="price-row"><span class="zone">Maillot simple</span><span class="prix">60€</span></div>
+    <div class="price-row"><span class="zone">Maillot échancré</span><span class="prix">70€</span></div>
+    <div class="price-row"><span class="zone">Maillot intégral SIF</span><span class="prix">100€</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Dos</div>
+    <div class="price-row"><span class="zone">Bas du dos</span><span class="prix">100€</span></div>
+    <div class="price-row"><span class="zone">Fesses</span><span class="prix">110€</span></div>
+    <div class="price-row"><span class="zone">Dos complet</span><span class="prix">180€</span></div>
+  </div>
+
+  <div class="rdv-section">
+    <span class="rdv-label">RÉSERVATION EN LIGNE</span>
+    <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER →</a>
+  </div>
+
+  <p class="note">* Prix à la séance — Bagnolet 93170</p>
+</div>
+
+<!-- ══════ FORFAITS ══════ -->
+<div class="card" id="forfaits">
+  <div class="logo">Myia<em style="font-style:italic; color:#8B7355;">Laser</em></div>
+  <h1 class="main-title">Formules</h1>
+
+  <div class="forfait-grid">
+    <div class="forfait">
+      <span class="f-prix">60€</span>
+      <div class="f-zones">Maillot simple<br>& Aisselles</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">80€</span>
+      <div class="f-zones">Visage<br>Complet</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">90€</span>
+      <div class="f-zones">Maillot échancré,<br>SIF & Aisselles</div>
+    </div>
+    <div class="forfait featured">
+      <span class="f-prix">110€</span>
+      <div class="f-zones">Maillot intégral<br>& Bras entier</div>
+    </div>
+    <div class="forfait featured">
+      <span class="f-prix">120€</span>
+      <div class="f-zones">Maillot intégral<br>& Aisselles</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">160€</span>
+      <div class="f-zones">Demi-jambes,<br>Maillot simple<br>& Aisselles</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">180€</span>
+      <div class="f-zones">Demi-jambes,<br>Maillot échancré,<br>SIF & Aisselles</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">210€</span>
+      <div class="f-zones">Demi-jambes,<br>Maillot intégral<br>& Aisselles</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">250€</span>
+      <div class="f-zones">Jambes entières,<br>Maillot simple<br>& Aisselles</div>
+    </div>
+    <div class="forfait">
+      <span class="f-prix">280€</span>
+      <div class="f-zones">Jambes entières,<br>Maillot échancré,<br>SIF & Aisselles</div>
+    </div>
+    <div class="forfait featured">
+      <span class="f-prix">300€</span>
+      <div class="f-zones">Jambes entières,<br>Maillot intégral<br>& Aisselles</div>
+    </div>
+  </div>
+
+  <div class="rdv-section">
+    <span class="rdv-label">RÉSERVATION EN LIGNE</span>
+    <a class="rdv-btn" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">RÉSERVER →</a>
+  </div>
+
+  <p class="note">* Prix à la séance — Bagnolet 93170</p>
+</div>
+
+<p class="hint">↑ Cliquez sur les onglets pour naviguer</p>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>

@@ -334,9 +334,28 @@
   }
 
   /* RESPONSIVE */
-  @media (max-width: 500px) {
-    .cards { grid-template-columns: 1fr; }
-    .contact-bar { gap: 20px; }
+  @media (max-width: 768px) {
+    .hero { padding: 40px 16px 30px; }
+    .hero-title { font-size: clamp(42px, 14vw, 72px); letter-spacing: -1px; }
+    .hero-tagline { font-size: 8px; letter-spacing: 2px; }
+    .hero-addr { font-size: 8px; }
+    .cards { grid-template-columns: 1fr; gap: 2px; }
+    .card { min-height: 120px; padding: 24px 20px; }
+    .card-title { font-size: 18px; }
+    .card-desc { font-size: 10px; }
+    .expertise { gap: 6px; margin-top: 24px; }
+    .badge { font-size: 7px; padding: 4px 10px; }
+    .contact-bar { flex-direction: column; gap: 16px; padding: 20px 16px; text-align: center; }
+    .contact-val { font-size: 13px; }
+    .rdv-btn { width: 100%; text-align: center; padding: 14px 20px; }
+    footer { padding: 12px 16px; }
+    footer p { font-size: 8px; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-title { font-size: 36px; }
+    .hero-badge { font-size: 7px; letter-spacing: 3px; }
+    .card { padding: 20px 16px; }
   }
 </style>
 </head>
@@ -373,15 +392,7 @@
       <span class="card-arrow">→</span>
     </a>
 
-    <a class="card" href="myia_laser_fresha_content.html">
-      <div class="card-icon">📋</div>
-      <div class="card-tag">RÉSERVATION</div>
-      <div class="card-title">Nos Services<br>sur Fresha</div>
-      <div class="card-desc">Descriptions détaillées de tous nos services. Réservez directement en ligne.</div>
-      <span class="card-arrow">→</span>
-    </a>
-
-    <a class="card" href="epilations_laser.html">
+    <a class="card" href="epilation_laser.html">
       <div class="card-icon">⚡</div>
       <div class="card-tag">ÉPILATION LASER</div>
       <div class="card-title">Tarifs & Formules<br>Épilation</div>
@@ -394,6 +405,14 @@
       <div class="card-tag">BIENTÔT</div>
       <div class="card-title">Promos<br>& Offres</div>
       <div class="card-desc">Nos offres du moment, promotions saisonnières et programme de parrainage.</div>
+    </a>
+
+    <a class="card featured" href="https://forms.gle/2vqvWBzn9Q26dQ9WA" target="_blank" id="vip-card">
+      <div class="card-icon">💌</div>
+      <div class="card-tag">LISTE VIP</div>
+      <div class="card-title">Rejoindre<br><em>la liste VIP</em></div>
+      <div class="card-desc">Inscrivez-vous pour recevoir nos promotions et offres exclusives en avant-première.</div>
+      <span class="card-arrow">→</span>
     </a>
 
     <a class="card" href="https://www.fresha.com/book-now/myia-laser-rrqkkllp/all-offer?share=true&pId=2834047" target="_blank">
