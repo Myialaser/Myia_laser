@@ -321,6 +321,69 @@ body {
   .copy-zone { padding-right: 70px; font-size: 11px; }
 }
 </style>
+
+<style id="premium-enhancement">
+/* Premium enhancement without breaking original layout */
+
+body{
+  background:linear-gradient(180deg,#faf7f2 0%,#f3eadf 100%) !important;
+}
+
+/* cards */
+.card,
+.banner{
+  border-radius:22px !important;
+  overflow:hidden !important;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08) !important;
+  border:1px solid rgba(180,140,90,0.18) !important;
+}
+
+/* buttons */
+.nav-btn,
+.tab,
+.back-btn{
+  transition:all .25s ease !important;
+}
+
+.nav-btn:hover,
+.nav-btn.active,
+.tab:hover,
+.tab.active{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* typography */
+.page-title,
+h1,h2,h3{
+  letter-spacing:0.5px !important;
+}
+
+.page-title{
+  text-shadow:0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* softer images */
+.geisha-bg,
+.banner-geisha{
+  opacity:.96 !important;
+  filter:saturate(1.02);
+}
+
+/* improve readability */
+p, li{
+  line-height:1.7 !important;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .card,
+  .banner{
+    border-radius:18px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -593,5 +656,14 @@ function copyText(id, btn) {
   });
 }
 </script>
+
+<script>
+document.querySelectorAll('.nav-btn,.tab').forEach(btn=>{
+  btn.addEventListener('mouseenter',()=>{
+    btn.style.transition='all .25s ease';
+  });
+});
+</script>
+
 </body>
 </html>
