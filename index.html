@@ -327,6 +327,77 @@ body {
   .info-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--beige-f); }
   .info-item:last-child { border-bottom: none; }
 }
+
+/* ── NOS RÉSEAUX ── */
+.socials-section{
+  width:100%;
+  max-width:500px;
+  background:linear-gradient(135deg,var(--vert),var(--vert-c));
+  color:white;
+  border-radius:24px;
+  padding:28px 22px;
+  margin-bottom:20px;
+  box-shadow:4px 4px 0px var(--vert-p),8px 8px 0px var(--beige-m);
+}
+
+.socials-section h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:12px;
+  font-weight:300;
+}
+
+.socials-section p{
+  text-align:center;
+  margin-bottom:24px;
+  opacity:.9;
+}
+
+.social-links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.social-card{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  text-decoration:none;
+  color:white;
+  transition:.3s ease;
+}
+
+.social-card:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.18);
+}
+
+.social-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.social-icon{
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  background:rgba(255,255,255,.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.social-arrow{
+  font-size:26px;
+}
+
 </style>
 
 <style id="premium-enhancement">
@@ -393,6 +464,71 @@ p, li{
 
 </head>
 <body>
+
+<!-- NOS RESEAUX -->
+<section class="socials-section">
+
+  <h2>Nos Réseaux</h2>
+
+  <p>
+    Suivez Myia Laser pour découvrir nos nouveautés,
+    offres et résultats.
+  </p>
+
+  <div class="social-links">
+
+    <a href="https://instagram.com"
+       target="_blank"
+       class="social-card">
+
+      <div class="social-left">
+        <div class="social-icon">IG</div>
+
+        <div>
+          <strong>Instagram</strong><br>
+          @myialaser
+        </div>
+      </div>
+
+      <div class="social-arrow">→</div>
+    </a>
+
+    <a href="https://tiktok.com"
+       target="_blank"
+       class="social-card">
+
+      <div class="social-left">
+        <div class="social-icon">TT</div>
+
+        <div>
+          <strong>TikTok</strong><br>
+          @myialaser
+        </div>
+      </div>
+
+      <div class="social-arrow">→</div>
+    </a>
+
+    <a href="https://facebook.com"
+       target="_blank"
+       class="social-card">
+
+      <div class="social-left">
+        <div class="social-icon">FB</div>
+
+        <div>
+          <strong>Facebook</strong><br>
+          Myia Laser
+        </div>
+      </div>
+
+      <div class="social-arrow">→</div>
+    </a>
+
+  </div>
+
+</section>
+
 
 <div class="card">
   <div class="geisha-bg"></div>
