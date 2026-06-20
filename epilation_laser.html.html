@@ -330,6 +330,93 @@ p,li,.hint{
 }
 </style>
 
+<style id="luxe-texte-fonce">
+/* === AGRANDISSEMENT & ASSOMBRISSEMENT DES ÉCRITURES — FINITION LUXE === */
+
+:root{
+  --noir-luxe:#0B0905;
+  --vert-luxe:#142A1C;
+}
+
+body{ color:var(--noir-luxe) !important; }
+
+/* En-têtes de salon / kanji */
+.c-salon{ font-size:13px !important; letter-spacing:5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; }
+.c-sub, .sec-hdr-light-sub{ font-size:12px !important; letter-spacing:4px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+.sec-hdr-sub{ font-size:12px !important; letter-spacing:3px !important; color:var(--gold-soft,#ead7b2) !important; font-weight:600 !important; }
+
+/* Titres principaux */
+.c-title{ font-size:clamp(34px,9vw,46px) !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.sec-hdr-light-title{ font-size:clamp(26px,7vw,34px) !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.sec-hdr-title{ font-size:clamp(26px,7vw,34px) !important; font-weight:500 !important; }
+.c-title em, .sec-hdr-light-title em{ color:var(--vert-luxe) !important; }
+
+/* Badges / pills / tags */
+.c-badge, .pill, .exp-tag{ font-size:9px !important; letter-spacing:2.5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; border-width:1.5px !important; }
+
+/* Étapes */
+.c-step-name{ font-size:17px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.c-step-num{ font-size:11px !important; color:var(--vert-luxe) !important; font-weight:700 !important; }
+
+/* Prix mis en avant */
+.c-prix-label{ font-size:9px !important; letter-spacing:3.5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; }
+.c-prix{ color:var(--noir-luxe) !important; font-weight:500 !important; }
+.c-prix sup{ color:var(--noir-luxe) !important; }
+.c-duree{ font-size:10px !important; letter-spacing:2.5px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+.c-note{ font-size:12px !important; color:var(--noir-luxe) !important; opacity:0.85 !important; }
+
+/* Bouton de réservation */
+.c-btn{ font-size:11px !important; letter-spacing:4px !important; font-weight:600 !important; padding:17px !important; }
+
+/* Soins */
+.soin-name{ font-size:20px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.soin-desc{ font-size:13px !important; color:var(--noir-luxe) !important; }
+.soin-duree{ font-size:11px !important; letter-spacing:2.5px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+.soin-prix{ font-size:clamp(19px,4.5vw,23px) !important; font-weight:600 !important; }
+.soin-unite{ font-size:11px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+.soin-item.star .soin-name{ font-size:21px !important; color:var(--noir-luxe) !important; }
+
+/* Cures */
+.cure-name{ font-size:19px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.cure-detail{ font-size:13px !important; color:var(--noir-luxe) !important; }
+.cure-prix{ color:var(--noir-luxe) !important; font-weight:600 !important; }
+.cure-prix span{ font-size:13px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+.cure-note{ font-size:12px !important; letter-spacing:3.5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; }
+
+/* Tarifs laser */
+.tarif-sec{ font-size:17px !important; color:var(--noir-luxe) !important; font-weight:600 !important; letter-spacing:2.5px !important; }
+.zone{ font-size:14px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.prix{ font-size:19px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+
+/* Forfaits */
+.f-prix{ font-size:clamp(20px,5.5vw,25px) !important; font-weight:600 !important; }
+.f-zones{ font-size:13px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+
+/* Expertise */
+.exp-num{ font-size:11px !important; letter-spacing:3.5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; }
+.exp-title{ font-size:20px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.exp-desc{ font-size:13px !important; color:var(--noir-luxe) !important; }
+
+/* Engagement / infos */
+.promesse{ font-size:17px !important; color:var(--noir-luxe) !important; }
+.info-label{ font-size:11px !important; letter-spacing:3.5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; }
+.info-value{ font-size:16px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+
+/* Photos */
+.photo-hdr-label{ font-size:9px !important; letter-spacing:4.5px !important; color:var(--noir-luxe) !important; font-weight:700 !important; }
+.photo-hdr-title{ font-size:clamp(22px,6vw,30px) !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.photo-slot-label{ font-size:9px !important; letter-spacing:3.5px !important; color:var(--noir-luxe) !important; font-weight:600 !important; }
+.photo-footer a{ font-size:10px !important; letter-spacing:3.5px !important; font-weight:600 !important; }
+.footer-note{ font-size:9px !important; letter-spacing:2.5px !important; color:var(--noir-luxe) !important; opacity:0.75 !important; }
+
+/* Navigation & divers */
+.nav-btn{ font-size:12px !important; letter-spacing:2.5px !important; font-weight:700 !important; color:var(--noir-luxe) !important; }
+.nav-btn.active, .nav-btn:hover{ color:#fff !important; }
+.hint{ font-size:12px !important; letter-spacing:2.5px !important; color:var(--noir-luxe) !important; font-weight:500 !important; }
+.back-btn{ font-size:11px !important; letter-spacing:3.5px !important; font-weight:700 !important; color:var(--noir-luxe) !important; }
+.back-btn .arr{ color:var(--noir-luxe) !important; }
+</style>
+
 </head>
 <body>
 <a class="back-btn" href="index.html"><span class="arr">←</span>&nbsp;RETOUR</a>
